@@ -1,3 +1,8 @@
+/* 
+This css file was customized using Bootswatcher 
+available at http://bootswatcher.com
+*/
+
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 audio:not([controls]){display:none;}
