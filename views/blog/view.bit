@@ -1,0 +1,23 @@
+<?php
+
+// All post for a page
+foreach($posts as $post)
+{
+	echo '<article class="post">';
+
+		include('includes/post_view.bit');
+
+		echo '<div class="post">';
+			if($post['read_more'])
+				echo '<a href="'.$post['permalink'].'" class="btn btn-primary pull-right vspacer">'.$_LANG['READ_MORE'].'</a>';
+                echo '<hr class="clear vspacer">';
+                
+		echo '</div>';
+
+                echo '</article>';
+}
+
+// Pager
+include('includes/pager.bit');
+
+?>

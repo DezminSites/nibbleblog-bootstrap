@@ -1,0 +1,37 @@
+<?php
+
+	// ----- POST HEAD
+	echo '<div class="post_header">';
+
+		// print title if this is not empty
+		if( !empty($post['title']) )
+			echo '<h2 class="title">'.$post['title'].'</h2>';
+                
+		// print publish date
+		echo '<div class="pull-right"><p>'.$post['pub_date'].'</p></div>';
+
+
+	echo '</div>';
+
+	echo '<br class="clear">';
+
+        
+	// ----- POST CONTENT
+	// quote post
+	if($post['type']=='quote')
+	{
+		echo '<blockquote>'.$post['quote'].'</blockquote>';
+	}
+	else
+	{
+		// video post
+		if($post['type']=='video')
+		{
+			$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+
+			echo '<p>'.$video_info['embed'].'</p>';
+		}
+		echo $post['content'][0];
+	}
+
+?>

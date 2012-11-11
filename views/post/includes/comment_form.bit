@@ -1,0 +1,30 @@
+<?php
+
+echo '<div id="comment_form">';
+
+	echo '<h3>'.$_LANG['NEW_COMMENT'].'</h3>';
+
+	if($_SESSION['nibbleblog']['error'])
+	{
+		echo '<h4 class="alert">'.$_SESSION['nibbleblog']['alert'].'</h4>';
+	}
+
+	echo '<form method="post" name="form" action="'.HTML_PATH_ROOT.'index.php?controller=comment&amp;action=new&amp;id_post='.$_URL['id_post'].'">';
+
+		echo '<input type="text" class="span4" name="name" value="'.$_SESSION['nibbleblog']['comment_name'].'" placeholder="'.$_LANG['NAME'].'"><br>';
+
+		echo '<input type="text" class="span4" name="email" value="'.$_SESSION['nibbleblog']['comment_email'].'" placeholder="'.$_LANG['EMAIL'].'"><br>';
+
+		echo '<textarea class="span4" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'" name="content">'.$_SESSION['nibbleblog']['comment_content'].'</textarea><br>';
+
+		echo '<input type="text" name="captcha" class="captcha" placeholder="'.$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'].'">';
+
+		echo '<img class="captcha" src="'.HTML_PATH_ADMIN.'kernel/captcha.php?w=100&h=36&bgcolor=254,254,254&txcolor=200,25,112" /><br>';
+
+		echo '<input type="submit" value="'.$_LANG['PUBLISH'].'">';
+
+	echo '</form>';
+
+echo '</div>';
+
+?>

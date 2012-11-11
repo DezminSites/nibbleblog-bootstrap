@@ -1,0 +1,30 @@
+<?php
+
+if(!empty($comments))
+{
+	echo '<div id="comment_list" style="margin-bottom: 10px;">';
+
+		echo '<h3>'.$_LANG['COMMENTS'].'</h3>';
+
+		foreach($comments as $comment)
+		{
+			$date = $_DATE->format($comment['pub_date'], $settings['timestamp_format']);
+
+			echo '<div class="comment">';
+				echo '<div class="pull-left">';
+                                    echo '<img class="avatar pull-left" src="'.$_IMAGE->get_gravatar($comment['author_email'],64).'">';
+                                echo '</div>';
+				echo '<div class="pull-left" style="margin-left: 10px;">';
+                                    echo '<span class="author_name"><strong>'.$comment['author_name'].'</strong></span>';
+                                    echo '<span class="date"> - '.$date.'</span>';
+                                    echo '<br>';
+                                    echo '<span class="content">'.$comment['content'].'</span>';
+                                echo '</div>';
+                                echo '<br class="clear vspacer">';
+			echo '</div>';
+		}
+
+	echo '</div>';
+}
+
+?>

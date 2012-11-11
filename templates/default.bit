@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">        
+        <!-- TITLE -->
+        <title><?php echo $layout['title'] ?></title>
+
+        <!--VIEWPORT-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- DESCRIPTION -->
+        <meta name="description" content="<?php echo $layout['description'] ?>">
+
+        <!-- CSS3 -->
+        <link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS . 'bootswatcher.css?v=' . $theme['version'] ?>" />
+
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="<?php echo HTML_THEME_CSS . 'img/favicon.ico' ?>" type="image/x-icon" />
+
+        <!-- ATOM Feed 2.0 -->
+        <link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+
+        <!-- HTML5 shim -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <!-- Main hero unit for a primary marketing message or call to action -->
+
+            <div class="hero-unit">
+                <h1><?php echo $settings['name'] ?></h1>
+                <p><?php echo $settings['slogan'] ?></p>
+            </div>
+
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span9">
+                    <?php include(THEME_VIEWS . $layout['view']); ?>
+                </div>
+                <div class="span3">
+                    <h2>Social</h2>
+                    <a href="<?php echo $layout['feed'] ?>">Atom</a>
+                    <h2>Categories</h2>
+                    <!-- Plugin::Categories -->
+                    <?php
+                    if (isset($plugins['categories'])) {
+                        echo $plugins['categories']->get_html();
+                    }
+                    ?>
+                </div>
+            </div>
+            <hr>
+            <footer class="pull-center">
+                <p class="pull-center"><?php echo $settings['footer'] ?></p>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <!-- JQUERY -->
+        <script src="<?php echo JS_JQUERY ?>"></script>
+
+        <!-- Plugin::Analytics -->
+        <?php
+        if (isset($plugins['analytics'])) {
+            echo $plugins['analytics']->get_html();
+        }
+        ?>
+    </body>
+</html>
